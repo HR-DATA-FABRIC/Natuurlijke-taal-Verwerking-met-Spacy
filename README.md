@@ -5,7 +5,7 @@ Natural Language Processing (NLP) --natuurlijke taal verwerking-- is een hybride
 
 ## Context & Leeruitkomst
 
-In deze primer leer je
+
 
 <div align="center">
 
@@ -15,6 +15,11 @@ In deze primer leer je
 | 2. Tekstgegevens kunnen importeren en visualiseren | 
 | 3. Tekstgegevens voorbewerken en opschonen |
 
-</div>   
+</div> <br />
 
-## 
+********
+### Coderen in Python met Anaconda + Jupyter notebooks
+
+### Tekstgegevens kunnen importeren en visualiseren
+
+### Tekstgegevens voorbewerken en opschonen

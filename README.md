@@ -12,7 +12,7 @@ Natural Language Processing (NLP) --natuurlijke taal verwerking-- is een hybride
 |Leerdoel|
 | --------- |
 | 1. Coderen in Python met Anaconda + Jupyter notebooks |
-| 2. Tekstgegevens kunnen importeren en visualiseren | 
+| 2. Tekstgegevens importeren en visualiseren | 
 | 3. Tekstgegevens voorbewerken en opschonen |
 
 </div> <br />

@@ -6,12 +6,15 @@ Natural Language Processing (NLP) --natuurlijke taal verwerking-- is een hybride
 ## Context & Leeruitkomst
 
 In deze primer leer je
+
+<div align="center">
+
 |Leerdoel|
 | --------- |
-| 1. Coderen in Python met Anaconda |
+| 1. Coderen in Python met Anaconda + Jupyter notebooks |
 | 2. Tekstgegevens kunnen importeren en visualiseren | 
 | 3. Tekstgegevens voorbewerken en opschonen |
 
-
+</div>   
 
 ## 

@@ -14,9 +14,17 @@ Natural Language Processing (NLP) --natuurlijke taal verwerking-- is een hybride
 |Leerdoel|
 | --------- |
 | 1. Coderen in Python met Anaconda + Jupyter notebooks |
-| 2. ChatGPT als hulpmiddel om te lere coderen |
+| 2. ChatGPT als hulpmiddel om te leren coderen |
 | 3. Tekstgegevens importeren en visualiseren | 
 | 4. Tekstgegevens voorbewerken en opschonen |
+| 5. Aanpassen van bestaande Python broncode voor je eigen doeleinde |
+
+Na afloop van deze workshop ben je instaat om 
+* met behulp van Python en Jupyter notebooks, tekstgegevens te importeren, te visualiseren en te voorbewerken. <br>
+*  om met behulp van NLP technieken, tekstgegevens te analyseren en te interpreteren. <br>
+
+De python-broncode voor deze workshop is te vinden in de [Notebooks folder van deze repository](https://github.com/robvdw/NLP-PRIMER-WORKSHOP/blob/main/Notebooks/Docx-NER-pandas-V07.ipynb)
+
 
 </div> <br />
 
@@ -174,7 +182,7 @@ dox_df = pd.DataFrame(data)
 print(docx_df)
 ```
 
-******
+********
 ### STAP[4]: Named Entities Recognition (NER) leren opporen in vrije-tekst met SPacy
 ******** 
 
@@ -237,5 +245,132 @@ Nu we de entiteiten hebben toegevoegd aan onze dataframes, kunnen we deze analys
 # aantal entiteiten per type
 entiteiten_per_type = pdf_df.entiteiten.apply(pd.Series).stack().value_counts()
 print(entiteiten_per_type)
+
+```
+********
+### STAP[5]: Aanpassen van bestaande Python broncode voor het anonimiseren van vrije-tekst
+******** 
+
+De onderstaande code maakt het mogelijk om de entiteiten in vrije-tekst anonimiseren.      <br>
+
+```python
+### UPDATE PIP to newer version
+#step 1
+#!python -m pip uninstall pip
+
+#Step 2
+#!python -m ensurepip
+
+#Step 3
+#!python -m pip install -U pip
+
+import os
+import spacy
+from spacy import displacy
+import numpy as np
+import pandas as pd
+from pandas import DataFrame as df
+
+currentdir = os.getcwd() + r'/RAW_DATA/NON'
+flist = pd.DataFrame()
+
+# create dataframe with list of .docx files in de data map
+for r, d, f in os.walk(currentdir):
+    for idx, file in enumerate(f):
+        if ".docx" in file:
+            #print(os.path.join( ' ', file))
+            temp = df([file], index = [idx+1])
+            flist = pd.concat([flist, temp])   
+            
+#  Create column label "filename"      
+filenameslist = flist.rename(columns={0: 'filename'})
+
+
+# DISPLAY content of currentdir + filenames  .docx list   
+# ROWS index the number of files available
+display(currentdir)
+display(filenameslist)
+
+import docx
+
+## SELECT FILENAME + path
+currentdir = os.getcwd()
+datadir = r'/RAW_DATA/NON/'
+
+## NUMBER selects index of filename in the list 
+number = 5
+docsel  = currentdir + datadir + filenameslist.filename.iloc[number]
+
+print(docsel)
+
+## DOWNLOAD + INSTALL DUTCH language CORPUS (if not installed already)
+## https://spacy.io/models/nl
+#!python -m spacy download nl_core_news_md
+#!python -m spacy download nl_core_news_sm
+#!python -m spacy download nl_core_news_lg
+#!conda install spacy
+#!pip install cupy-cuda111
+#!pip install -U --user 'spacy[cuda-autodetect,transformers,lookups]'
+#!python -m spacy validate
+
+
+import pandas as pd
+import docx
+
+doc = docx.Document(docsel)
+data = ""
+fullText = []
+
+for para in doc.paragraphs:
+    fullText.append(para.text)
+    data = '\n'.join(fullText)
+    
+import spacy
+from spacy import displacy
+
+spacy.prefer_gpu()
+nlp = spacy.load("nl_core_news_lg")
+doc = nlp(data) 
+## In jupyter Notebooks Use .render (NIET .serve)
+displacy.render(doc, style="ent")
+
+for token in doc:
+    print(token.text, token.pos_, token.dep_)
+
+    for token in doc:
+    print(token.text, token.lemma_, token.pos_, token.tag_, token.dep_,
+            token.shape_, token.is_alpha, token.is_stop)
+
+tokens = [(token.text, token.lemma_, token.pos_, token.tag_, token.dep_,token.shape_, token.is_alpha, token.is_stop) for token in doc]
+df = pd.DataFrame(tokens, columns=['text','lemma', 'PoS', 'tag', 'dependency', 'shape', 'alpha', 'stop woord'])
+pd.set_option("display.max_rows", None, "display.max_columns", None) # show all rows
+df
+
+#SEARCH for  Named Entity Stundentnummer in text column of dataframe df
+sel = (df.text == 'Studentnummer')
+nums = np.array( list(np.where(sel)[0]) )
+display( nums[0]                 )
+display( df[sel]                 )
+display( df.iloc [nums[0]+3, 0]  )  
+
+# NER
+for entity in doc.ents:
+    print(entity.text + ' - ' + entity.label_ + ' - ' + str(spacy.explain(entity.label_)))
+
+
+ entities = [(e.label_,e.text) for e in doc.ents]
+df = pd.DataFrame(entities, columns=['Entity','Identified'])
+
+pd.set_option("display.max_rows", None, "display.max_columns", None)
+display(df)
+
+# Selecteer op de gewenste NER
+
+sel = (df.Entity == 'PERSON')
+df[sel] 
+
+sel = (df.Entity == 'CARDINAL')
+df[sel] 
+
 
 ```

@@ -33,7 +33,7 @@ Natural Language Processing (NLP) --natuurlijke taal verwerking-- is een hybride
 <br>
 
 ********
-### STAP [2]: ChatGPT als hulpmiddel om te lere coderen
+### STAP [2]: ChatGPT als hulpmiddel om te leren coderen
 ******** 
 
 <br>

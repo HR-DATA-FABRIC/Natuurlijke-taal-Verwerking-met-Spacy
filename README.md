@@ -3,11 +3,13 @@
 # NLP-PRIMER-WORKSHOP
 Natural Language Processing (NLP) --natuurlijke taal verwerking-- is een hybride AI-discipline, ontwikkeld vanuit de taalkunde en de informatica om menselijke taal begrijpelijk te maken voor machines.
 
+
+********
 ## Context & Leeruitkomst
+********
 
 
-
-<div align="center">
+<div align="left">
 
 |Leerdoel|
 | --------- |
@@ -19,7 +21,7 @@ Natural Language Processing (NLP) --natuurlijke taal verwerking-- is een hybride
 </div> <br />
 
 ********
-### Coderen in Python met Anaconda + Jupyter notebooks
+### STAP [1]: Coderen in Python met Anaconda + Jupyter notebooks
 ******** 
 
 <br>
@@ -28,9 +30,10 @@ Natural Language Processing (NLP) --natuurlijke taal verwerking-- is een hybride
 | --------- |
 | https://github.com/robvdw/Creating-AI-Data-Products-Using-Jupyter-Notebooks| 
 
+<br>
 
 ********
-### ChatGPT als hulpmiddel om te lere coderen
+### STAP [2]: ChatGPT als hulpmiddel om te lere coderen
 ******** 
 
 <br>
@@ -40,7 +43,10 @@ Natural Language Processing (NLP) --natuurlijke taal verwerking-- is een hybride
 | --------- |
 | https://github.com/robvdw/AIs-NEW-FRONTIER-Chat-GPT |
 
-### Tekstgegevens kunnen importeren en visualiseren
+<br>
+
+********
+### STAP[3]: Tekstgegevens kunnen importeren en visualiseren
 ******** 
 
 <br>
@@ -48,7 +54,7 @@ Natural Language Processing (NLP) --natuurlijke taal verwerking-- is een hybride
 
 
 ********
-### Tekstgegevens voorbewerken en opschonen
+### STAP[4]: Tekstgegevens voorbewerken en opschonen
 ******** 
 
 <br>

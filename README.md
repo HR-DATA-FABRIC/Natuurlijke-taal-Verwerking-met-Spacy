@@ -12,13 +12,16 @@ Natural Language Processing (NLP) --natuurlijke taal verwerking-- is een hybride
 |Leerdoel|
 | --------- |
 | 1. Coderen in Python met Anaconda + Jupyter notebooks |
-| 2. Tekstgegevens importeren en visualiseren | 
-| 3. Tekstgegevens voorbewerken en opschonen |
+| 2. ChatGPT als hulpmiddel om te lere coderen |
+| 3. Tekstgegevens importeren en visualiseren | 
+| 4. Tekstgegevens voorbewerken en opschonen |
 
 </div> <br />
 
 ********
 ### Coderen in Python met Anaconda + Jupyter notebooks
+
+### ChatGPT als hulpmiddel om te lere coderen
 
 ### Tekstgegevens kunnen importeren en visualiseren
 

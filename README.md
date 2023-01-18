@@ -139,7 +139,6 @@ Nu we de libraries geïnstalleerd hebben, kunnen we ze importeren in ons Python 
 ```python
 import numpy as np
 import pandas as pd
-
 ```
 
 Stap 3: Creëer een dataframe van de ingelezen pdf bestanden
@@ -179,6 +178,64 @@ print(docx_df)
 ### STAP[4]: Named Entities Recognition (NER) leren opporen in vrije-tekst met SPacy
 ******** 
 
-The code zoasl hieronder weergegeven kan worden ge
+In de vorige les hebben we geleerd hoe we ingelezen .docx en .pdf bestanden kunnen omzetten in dataframes met behulp van Numpy en Pandas. Nu gaan we leren hoe we deze dataframes kunnen voorbereiden voor het benutten van een natuurlijke taal verwerking functie: Named Entity Recognition (NER). Met aLs doel om vrije-tekst documenten te kunnen anonimiseren.
+
+We gaan hiervoor gebruik maken van het  Nederlandse taal corpus zoals beschikbaar via SpaCy.
+
+Stap 1: Downloaden van het Nederlandse NLP model
+Voordat je het model kunt gebruiken, moet je het eerst downloaden. Dit kun je doen door de volgende commando uit te voeren in je command prompt of terminal:
+
+```
+python -m spacy download nl_core_news_sm
+```
+<br> 
+
+Stap 2: Laden van het Nederlandse NLP model
+Nadat het model is gedownload, kun je het laden in je Python script door de volgende regel toe te voegen:
+
+```python
+# importeren van SpaCy NLP library
+import spacy
+# laden van de spacy NLP model
+nlp = spacy.load("nl_core_news_sm")
+```
+Met deze stappen heb je het Nederlandse NLP model geladen in spacy en kun je deze gebruiken om Nederlandse tekst te verwerken en analyseren.
+
+<br> 
+
+Stap 3: Voorbereiden van de dataframe voor NER
+In deze stap gaan we de dataframe voorbereiden voor NER. <br> 
+Hieronder staat een voorbeeld van hoe je dit kunt doen met de ingelezen pdf dataframe:
+
+
+```python
+# verwerk de ingelezen tekst met spacy
+pdf_doc = nlp(pdf_df.tekst[0])
+
+# maak een lijst van entiteiten
+entiteiten = []
+for ent in pdf_doc.ents:
+    entiteiten.append((ent.text, ent.label_))
+
+# maak een nieuwe kolom in de pdf dataframe voor de entiteiten
+pdf_df["entiteiten"] = entiteiten
+print(pdf_df)
+```
+
+Herhaal deze stap ook met de ingelezen docx dataframe.
 
 <br>
+Stap 4: Analyseren van de entiteiten
+Nu we de entiteiten hebben toegevoegd aan onze dataframes, kunnen we deze analyseren. 
+<br> Hieronder staat een voorbeeld van hoe je dit kunt doen met de pdf dataframe:
+
+<br>
+
+
+
+```python
+# aantal entiteiten per type
+entiteiten_per_type = pdf_df.entiteiten.apply(pd.Series).stack().value_counts()
+print(entiteiten_per_type)
+
+```

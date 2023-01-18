@@ -21,6 +21,9 @@ Natural Language Processing (NLP) --natuurlijke taal verwerking-- is een hybride
 ********
 ### Coderen in Python met Anaconda + Jupyter notebooks
 
+Zie Repository https://github.com/robvdw/Creating-AI-Data-Products-Using-Jupyter-Notebooks
+
+
 ### ChatGPT als hulpmiddel om te lere coderen
 
 ### Tekstgegevens kunnen importeren en visualiseren

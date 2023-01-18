@@ -49,8 +49,82 @@ Natural Language Processing (NLP) --natuurlijke taal verwerking-- is een hybride
 ### STAP[3]: Tekstgegevens kunnen importeren en visualiseren
 ******** 
 
-<br>
+#### Python code voor het inlezen van text data van .docx formaat documenten
+ 
+Hier leer je hoe .docx en .pdf bestanden kunnen worden ingelezen in Python  <br> zodat we er vervolgens mee kunnen werken in SPacy.
 
+We gaan hiervoor gebruik maken van de volgende libraries:
+
+PyPDF2 (voor het inlezen van pdf bestanden)
+docx (voor het inlezen van dox bestanden)
+spacy (voor het verwerken van de ingelezen tekst)
+Stap 1: Installeer de benodigde libraries
+Voordat we aan de slag kunnen, moeten we eerst de benodigde libraries installeren. Dit kun je doen door de volgende commando's uit te voeren in je command prompt of terminal:
+
+```python
+pip install PyPDF2
+pip install python-docx
+pip install spacy
+
+```
+Stap 2: Importeer de libraries in je Python script
+Nu we de libraries geïnstalleerd hebben, kunnen we ze importeren in ons Python script. Dit doen we door de volgende regels toe te voegen aan het begin van ons script:
+
+```python
+import PyPDF2
+import docx
+import spacy
+
+```
+
+
+Stap 3: Lees een pdf bestand in
+Om een pdf bestand in te lezen gebruiken we de PyPDF2 library. Hieronder staat een voorbeeld van hoe je dit kunt doen:
+
+```python
+# open het pdf bestand
+with open('voorbeeld.pdf', 'rb') as file:
+    # lees het bestand in met PyPDF2
+    pdf = PyPDF2.PdfFileReader(file)
+    # haal de tekst uit het bestand
+    tekst = ""
+    for i in range(0, pdf.getNumPages()):
+        tekst += pdf.getPage(i).extractText()
+    print(tekst)
+
+```
+
+Stap 4: Lees een dox bestand in
+Om een dox bestand in te lezen gebruiken we de docx library. Hieronder staat een voorbeeld van hoe je dit kunt doen:
+
+```python
+# open het dox bestand
+document = docx.Document('voorbeeld.docx')
+# haal de tekst uit het bestand
+tekst = ""
+for para in document.paragraphs:
+    tekst += para.text
+print(tekst)
+    
+```
+
+Stap 5: Verwerk de ingelezen tekst met SPacy
+Nu we de tekst uit ons dox of pdf bestand hebben gehaald, kunnen we deze verwerken met SPacy. Hieronder staat een voorbeeld van hoe je dit kunt doen:
+
+```python
+# laden van de spacy NLP model
+nlp = spacy.load("en_core_web_sm")
+
+```
+
+
+
+********
+********
+********
+********
+********
+********
 
 
 ********

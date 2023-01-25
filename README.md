@@ -71,7 +71,7 @@ Voordat we aan de slag kunnen, moeten we eerst de benodigde libraries installere
 
 ```python
 #IF NO MODULE named spacypdfreader | python-docx | spacy
-# inmstall the following libraries by uncommenting the following lines
+# install the following libraries by uncommenting the following lines
 #!pip install spacypdfreader
 #!pip install python-docx
 #!pip install spacy
@@ -81,9 +81,10 @@ Stap 2: Importeer de libraries in je Python script
 Nu we de libraries geïnstalleerd hebben, kunnen we ze importeren in ons Python script. Dit doen we door de volgende regels toe te voegen aan het begin van ons script:
 
 ```python
-
+# importeer de benodigde libraries
 import docx
 import spacy
+from spacypdfreader import pdf_reader
 
 ```
 
@@ -93,9 +94,6 @@ Om een pdf bestand in te lezen gebruiken we de PyPDF2 library. <br>
 Hieronder staat een voorbeeld van hoe je dit kunt doen:
 
 ```python
-import spacy
-from spacypdfreader import pdf_reader
-
 # laden van de spacy NLP model
 nlp = spacy.load('nl_core_news_sm')
 

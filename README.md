@@ -76,8 +76,8 @@ spacy (voor het verwerken van de ingelezen tekst)
 
 ### Stap 3.1
 
-Installeer de benodigde libraries
-Voordat we aan de slag kunnen, moeten we eerst de benodigde libraries installeren. Dit kun je doen door de volgende commando's uit te voeren in je command prompt of terminal:
+Installeer de benodigde libraries.
+Dit kun je doen door de volgende commando's uit te voeren in je command prompt of terminal:
 
 ```python
 # IF NO MODULE named spacypdfreader | python-docx | spacy

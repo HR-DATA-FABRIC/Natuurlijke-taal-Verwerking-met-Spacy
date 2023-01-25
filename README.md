@@ -31,7 +31,7 @@ De python-broncode voor deze workshop is te vinden in de [Notebooks folder van d
 </div> <br />
 
 ********
-## LEERDOEL github[1]: Coderen in Python met Anaconda + Jupyter notebooks
+## LEERDOEL [1]: Coderen in Python met Anaconda + Jupyter notebooks
 ******** 
 
 <br>

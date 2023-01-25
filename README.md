@@ -71,7 +71,7 @@ docx (voor het inlezen van dox bestanden)
 spacy (voor het verwerken van de ingelezen tekst)
 
 
-## Stap 1
+## Stap 3.1
 
 Installeer de benodigde libraries
 Voordat we aan de slag kunnen, moeten we eerst de benodigde libraries installeren. Dit kun je doen door de volgende commando's uit te voeren in je command prompt of terminal:
@@ -122,7 +122,7 @@ display(currentdir)
 display(filenameslist)
 ```
 
-## Stap 2
+## Stap 3.2
 
 Importeer de libraries in je Python script
 Nu we de libraries geïnstalleerd hebben, kunnen we ze importeren in ons Python script. Dit doen we door de volgende regels toe te voegen aan het begin van ons script:
@@ -135,7 +135,7 @@ import spacy
 from spacypdfreader import pdf_reader
 ```
 
-## Stap 3
+## Stap 3.3
 Lees een pdf bestand in
 Om een pdf bestand in te lezen gebruiken we de PyPDF2 library. <br> 
 Hieronder staat een voorbeeld van hoe je dit kunt doen:
@@ -163,7 +163,7 @@ display(doc._.page(selp))         # 'able to display the destination page'
 
 ```
 
-## Stap 4
+## Stap 3.4
 
 Lees een dox bestand in
 Om een docx bestand in te lezen gebruiken we de docx library. Hieronder staat een voorbeeld van hoe je dit kunt doen:
@@ -232,7 +232,7 @@ print(pdf_df)
 
 ```
 
-## Stap 5
+## Stap 3.5
 
 Creëer een dataframe van de ingelezen dox bestanden
 In deze stap gaan we de ingelezen tekst uit ons dox bestand omzetten in een dataframe. Hieronder staat een voorbeeld van hoe je dit kunt doen:
@@ -258,7 +258,9 @@ In de vorige les hebben we geleerd hoe we ingelezen .docx en .pdf bestanden kunn
 
 We gaan hiervoor gebruik maken van het  Nederlandse taal corpus zoals beschikbaar via SpaCy.
 
-Stap 1: Downloaden van het Nederlandse NLP model
+## Stap 4.1
+
+Downloaden van het Nederlandse NLP model
 Voordat je het model kunt gebruiken, moet je het eerst downloaden. Dit kun je doen door de volgende commando uit te voeren in je command prompt of terminal:
 
 ```
@@ -266,7 +268,9 @@ python -m spacy download nl_core_news_sm
 ```
 <br> 
 
-Stap 2: Laden van het Nederlandse NLP model
+## Stap 4.2
+
+Laden van het Nederlandse NLP model
 Nadat het model is gedownload, kun je het laden in je Python script door de volgende regel toe te voegen:
 
 ```python
@@ -279,7 +283,9 @@ Met deze stappen heb je het Nederlandse NLP model geladen in spacy en kun je dez
 
 <br> 
 
-Stap 3: Voorbereiden van de dataframe voor NER
+##Stap 4.3
+
+Voorbereiden van de dataframe voor NER
 In deze stap gaan we de dataframe voorbereiden voor NER. <br> 
 Hieronder staat een voorbeeld van hoe je dit kunt doen met de ingelezen pdf dataframe:
 
@@ -301,7 +307,10 @@ print(pdf_df)
 Herhaal deze stap ook met de ingelezen docx dataframe.
 
 <br>
-Stap 4: Analyseren van de entiteiten
+
+## Stap 4.4
+
+Analyseren van de entiteiten
 Nu we de entiteiten hebben toegevoegd aan onze dataframes, kunnen we deze analyseren. 
 <br> Hieronder staat een voorbeeld van hoe je dit kunt doen met de pdf dataframe:
 
@@ -319,7 +328,7 @@ print(entiteiten_per_type)
 ### LEERDOEL [5]: Uitvoeren van NER op vrije-tekst met SpaCy
 ******** 
 
-De onderstaande code maakt het mogelijk om de entiteiten in vrije-tekst anonimiseren.      <br>
+
 
 ```python
 
@@ -433,3 +442,5 @@ df[sel]
 
 ********
 ### STAP[6]: Aanpassen van bestaande vrije-tekst voor je eigen doeleinden
+
+De onderstaande code maakt het mogelijk om de entiteiten in vrije-tekst anonimiseren.      <br>

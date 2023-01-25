@@ -179,7 +179,9 @@ print(tekst)
     
 ```
 
-Stap 5: Verwerk de ingelezen tekst met SpaCy
+## Stap 3.5
+
+Verwerk de ingelezen tekst met SpaCy
 Nu we de tekst uit ons .docx of pdf bestand hebben gehaald, kunnen we deze verwerken met SpaCy. Hieronder staat een voorbeeld van hoe je dit kunt doen:
 
 Op de SpaCy website kun je meer informatie vinden over de verschillende SpaCy libraries en hoe je deze kunt gebruiken en installeren: https://spacy.io/usage
@@ -232,7 +234,7 @@ print(pdf_df)
 
 ```
 
-## Stap 3.5
+## Stap 3.6
 
 Creëer een dataframe van de ingelezen dox bestanden
 In deze stap gaan we de ingelezen tekst uit ons dox bestand omzetten in een dataframe. Hieronder staat een voorbeeld van hoe je dit kunt doen:

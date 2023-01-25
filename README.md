@@ -346,17 +346,20 @@ Nu we de entiteiten hebben toegevoegd aan onze dataframes, kunnen we deze analys
 # aantal entiteiten per type
 entiteiten_per_type = pdf_df.entiteiten.apply(pd.Series).stack().value_counts()
 print(entiteiten_per_type)
-```
+``` 
+### Stap4.5 
 
-********
-# l5
-### LEERDOEL [5]: Uitvoeren van NER op vrije-tekst met SpaCy
-******** 
+Voor het opschonen van de vrije-tekst nodig om NER te kunnen detecteren is de volgende code nodig.
+
+Belangrijk is om nu te begrijpen wat de tokenisatie is en wat de verschillende tags betekenen.
+
+* Welke tags zijn er en wat betekenen ze? 
+* Waar in de code vindt tokenisatie plaats? 
+* Aan welke variabele wordt de tokenisatie toegekend?
 
 
 
 ```python
-
 ## DOWNLOAD + INSTALL DUTCH language CORPUS (if not installed already)
 ## https://spacy.io/models/nl
 #!python -m spacy download nl_core_news_md
@@ -418,7 +421,7 @@ spacy.prefer_gpu()
 nlp = spacy.load("nl_core_news_lg")
 doc = nlp(data) 
 
-## DISPLAY NER results
+## DISPLAY XXXXXXXXX results
 ## In jupyter Notebooks Use .render (NIET .serve)
 displacy.render(doc, style="ent")
 
@@ -433,8 +436,22 @@ tokens = [(token.text, token.lemma_, token.pos_, token.tag_, token.dep_,token.sh
 df = pd.DataFrame(tokens, columns=['text','lemma', 'PoS', 'tag', 'dependency', 'shape', 'alpha', 'stop woord'])
 pd.set_option("display.max_rows", None, "display.max_columns", None) # show all rows
 df
+```
 
-#SEARCH for  Named Entity Stundentnummer in text column of dataframe df
+
+********
+# l5
+### LEERDOEL [5]: Uitvoeren van NER op opgeschoonde vrije-tekst met SpaCy
+******** 
+
+Op basis van de resultaten van de vorige stap, kunnen we nu de NER uitvoeren op de opgeschoonde vrije-tekst.
+
+* Kun je de onderstaande code begrijpen? 
+* Bedenk dat we Pandas gebruiken om de data te analyseren en te visualiseren.
+* Vervolgens wordt SpaCy gebruikt om de NER uit te voeren.
+
+```python
+#SEARCH for  Named Entity Studentnummer in text column of dataframe df
 sel = (df.text == 'Studentnummer')
 nums = np.array( list(np.where(sel)[0]) )
 display( nums[0]                 )
@@ -459,8 +476,6 @@ df[sel]
 
 sel = (df.Entity == 'CARDINAL')
 df[sel] 
-
-
 ```
 
 
@@ -468,4 +483,50 @@ df[sel]
 ********
 #### Stap[6]: Aanpassen van bestaande vrije-tekst voor je eigen doeleinden
 
-De onderstaande code maakt het mogelijk om de entiteiten in vrije-tekst anonimiseren.      <br>
+De onderstaande code maakt het mogelijk om op basis van Spacy-Based NER analyse vrije-tekst te anonimiseren. <br>
+
+We gebruiken hiervoor de volgende packages die nodig zijn om .docx bestanden te kunnen lezen en te schrijven; 
+zonder dat het format en/of Layout van de .docx file wordt aangetast. <br>
+
+```python
+!pip install -U -q --verbose python-docx
+!pip install -U -q --verbose python-docx-replace
+!pip install -U -q --verbose docxedit
+```
+
+We importeren eersts de packages die we nodig hebben om de .docx file te kunnen lezen en te schrijven. <br>
+
+```python
+import docx
+import os
+from docx import Document
+#from python_docx_replace import docx_replace
+#from python_docx_replace import docx_remove_table
+import docxedit
+
+# get your document using python-docx
+doc = Document('replaced.docx')
+```
+
+We gebruiken de volgende code ode vrije-tekst op specifieke plaatsen aan te passen. <br>
+
+```python
+# Replace all instances of 'yyyyyy'' in the document by 'xxxxxx'
+docxedit.replace_string(doc, old_string='Judith Adriaanse', new_string='XXXXXX XXXXXXX')
+```
+
+Vervolgens slaan we het aangepaste .docx  bestand op onder een  herkenbare naam. <br>
+
+```python
+# save the ALTERED document
+doc.save("replacedx.docx")
+```
+Door de code van leerdoel 6 te combineren met de code van leerdoel 5, kunnen we de NER uitvoeren op de opgeschoonde vrije-tekst. <br>
+
+
+Hoe zou deze code er uit kunnen zien?
+
+
+
+
+

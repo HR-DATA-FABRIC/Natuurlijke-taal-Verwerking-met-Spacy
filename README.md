@@ -76,15 +76,48 @@ Voordat we aan de slag kunnen, moeten we eerst de benodigde libraries installere
 #!pip install python-docx
 #!pip install spacy
 
+# needed to set current directory to path with data files
+# XXXXXXXXXX = path to data files
+
+import os
+currentdir = os.getcwd() + r'/XXXXXXXXXX'
+flist = pd.DataFrame()
+
+# create dataframe with list of .xxx files in de data map
+# for example .docx | .pdf |  .html | .csv
+
+file_type='.pdf' #   lect desired file type
+
+
+# create dataframe with list of .docx files in de data map
+for r, d, f in os.walk(currentdir):
+    for idx, file in enumerate(f):
+        if file_type in file:
+            #print(os.path.join( ' ', file))
+            temp = df([file], index = [idx+1])
+            flist = pd.concat([flist, temp])   
+            
+#  Create column with label "filename"      
+filenameslist = flist.rename(columns={0: 'filename'})
+
+
+#display current directory
+display(currentdir)
+
+
+
 ```
 Stap 2: Importeer de libraries in je Python script
 Nu we de libraries geïnstalleerd hebben, kunnen we ze importeren in ons Python script. Dit doen we door de volgende regels toe te voegen aan het begin van ons script:
 
 ```python
 # importeer de benodigde libraries
+import os
 import docx
 import spacy
 from spacypdfreader import pdf_reader
+
+
 
 ```
 
@@ -155,41 +188,18 @@ Stap 3: Creëer een dataframe van de ingelezen pdf bestanden
 In deze stap gaan we de ingelezen tekst uit ons pdf bestand omzetten in een dataframe. Hieronder staat een voorbeeld van hoe je dit kunt doen:
 
 ```python
+# laden van de spacy NLP model
+nlp = spacy.load('nl_core_news_sm')
+
 # open het pdf bestand
-with open('voorbeeld.pdf', 'rb') as file:
-    # lees het bestand in met PyPDF2
-    pdf = PyPDF2.PdfFileReader(file)
-    # haal de tekst uit het bestand
-    tekst = ""
-    for i in range(0, pdf.getNumPages()):
-        tekst += pdf.getPage(i).extractText()
-    # creëer een dataframe van de ingelezen tekst
-    data = {'tekst': [tekst]}
-    pdf_df = pd.DataFrame(data)
-    print(pdf_df)
+data = pdf_reader(voorbeeld.pdf, nlp)
+
+pdf_df = pd.DataFrame(data)
+print(pdf_df)
 
 
 
-# bovenstaande code in een functies zijn veroudert en niet meer bruikbaar
-# zie hieronder voor de nieuwe code met de nieuwe SpaCy libraries
-import spacy
-from spacypdfreader import pdf_reader
 
-nlp = spacy.load('en_core_web_sm')
-
-
-## SELECT FILENAME + path
-currentdir = os.getcwd()
-datadir = r'/DATA/'
-## NUMBER selects index of filename in the list 
-number = 1  # FIRST item on the list (index == 0)  
-docsel = currentdir + datadir + filenameslist.filename.iloc[number-1]
-
-#docsel =  filenameslist.filename.iloc[number-1]
-
-print(docsel)
-
-data = pdf_reader(docsel, nlp)
 
 ```
 Stap 4: Creëer een dataframe van de ingelezen dox bestanden
@@ -204,7 +214,7 @@ for para in document.paragraphs:
     tekst += para.text
 # creëer een dataframe van de ingelezen tekst
 data = {'tekst': [tekst]}
-dox_df = pd.DataFrame(data)
+docx_df = pd.DataFrame(data)
 print(docx_df)
 ```
 

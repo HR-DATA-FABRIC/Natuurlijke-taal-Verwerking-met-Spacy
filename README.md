@@ -210,10 +210,6 @@ data = pdf_reader(voorbeeld.pdf, nlp)
 pdf_df = pd.DataFrame(data)
 print(pdf_df)
 
-
-
-
-
 ```
 Stap 4: Creëer een dataframe van de ingelezen dox bestanden
 In deze stap gaan we de ingelezen tekst uit ons dox bestand omzetten in een dataframe. Hieronder staat een voorbeeld van hoe je dit kunt doen:
@@ -287,8 +283,6 @@ Nu we de entiteiten hebben toegevoegd aan onze dataframes, kunnen we deze analys
 <br> Hieronder staat een voorbeeld van hoe je dit kunt doen met de pdf dataframe:
 
 <br>
-
-
 
 ```python
 # aantal entiteiten per type

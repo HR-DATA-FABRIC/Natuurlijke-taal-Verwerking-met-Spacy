@@ -89,6 +89,21 @@ Voordat we aan de slag kunnen, moeten we eerst de benodigde libraries installere
 
 ```
 
+Op de SpaCy website kun je meer informatie vinden over de verschillende SpaCy libraries en hoe je deze kunt gebruiken en installeren: https://spacy.io/usage
+
+
+![Instal-SpaCy](https://user-images.githubusercontent.com/684692/214674372-9b36237e-2a54-44d4-8c78-f3aeae91bcbc.jpg)
+
+
+```python
+pip install -U pip setuptools wheel
+pip install -U spacy
+python -m spacy download nl_core_news_sm
+python -m spacy download en_core_web_sm
+
+```
+
+
 Met de os library kunnen we *"operating system"*  [OS] "command line" instructies's uitvoeren in Python. 
 Het is dan mogelijk om de huidige directory instellen naar de map waar de data bestanden zich bevinden. 
 Dit doen we door de volgende regels toe te voegen aan het begin het script:
@@ -141,7 +156,7 @@ from spacypdfreader import pdf_reader
 ### Stap 3.3
 Lees een pdf bestand in
 Om een pdf bestand in te lezen gebruiken we de PyPDF2 library. <br> 
-Hieronder staat een voorbeeld van hoe je dit kunt doen:
+De volgende regels code laten zien hoe je een pdf bestand inleest en vervolgens de inhoud van de eerste pagina weergeeft:
 
 ```python
 ## SELECT FILENAME + path
@@ -168,8 +183,8 @@ display(doc._.page(selp))         # 'able to display the destination page'
 
 ### Stap 3.4
 
-Lees een dox bestand in
-Om een docx bestand in te lezen gebruiken we de docx library. Hieronder staat een voorbeeld van hoe je dit kunt doen:
+Lees een .docx bestand in
+Om een .docx bestand in te lezen gebruiken we de docx library. <br>
 
 ```python
 # open het dox bestand
@@ -184,13 +199,9 @@ print(tekst)
 
 ### Stap 3.5
 
-Verwerk de ingelezen tekst met SpaCy
-Nu we de tekst uit ons .docx of pdf bestand hebben gehaald, kunnen we deze verwerken met SpaCy. Hieronder staat een voorbeeld van hoe je dit kunt doen:
-
-Op de SpaCy website kun je meer informatie vinden over de verschillende SpaCy libraries en hoe je deze kunt gebruiken en installeren: https://spacy.io/usage
-
-
-![Instal-SpaCy](https://user-images.githubusercontent.com/684692/214674372-9b36237e-2a54-44d4-8c78-f3aeae91bcbc.jpg)
+Verwerk de ingelezen tekst met SpaCy.
+Nu we de tekst uit ons .docx of pdf bestand hebben gehaald, kunnen we deze verwerken met SpaCy. 
+Hieronder staat voorbeeld code van hoe je dit kunt doen.
 
 
 
@@ -214,8 +225,8 @@ Stap 1: Installeer de benodigde libraries
 Voordat we aan de slag kunnen, moeten we eerst de benodigde libraries installeren. Dit kun je doen door de volgende commando's uit te voeren in je command prompt of terminal:
 
 ```
-pip install numpy
-pip install pandas
+!pip install numpy
+!pip install pandas
 ```
 Stap 2: Importeer de libraries in je Python script
 Nu we de libraries geïnstalleerd hebben, kunnen we ze importeren in ons Python script. Dit doen we door de volgende regels toe te voegen aan het begin van ons script:
@@ -242,7 +253,7 @@ print(pdf_df)
 
 ### Stap 3.7
 
-Creëer een dataframe van de ingelezen dox bestanden
+Creëer een dataframe van de ingelezen .docx bestanden
 In deze stap gaan we de ingelezen tekst uit ons dox bestand omzetten in een dataframe. Hieronder staat een voorbeeld van hoe je dit kunt doen:
 
 ```python
@@ -263,10 +274,11 @@ print(docx_df)
 ### LEERDOEL [4]: Tekstgegevens voorbewerken en opschonen met SpaCy
 ******** 
 
-In de vorige les hebben we geleerd hoe we ingelezen .docx en .pdf bestanden kunnen omzetten in dataframes met behulp van Numpy en Pandas. Nu gaan we leren hoe we deze dataframes kunnen voorbereiden voor het benutten van een natuurlijke taal verwerking functie: Named Entity Recognition (NER). Met aLs doel om vrije-tekst documenten te kunnen anonimiseren.
+In de vorige les hebben we geleerd hoe we ingelezen .docx en .pdf bestanden kunnen omzetten in dataframes met behulp van Numpy en Pandas. 
+
+Nu leren we hoe deze dataframes kunnen voorbereiden voor het benutten van een natuurlijke taal verwerking functie: Named Entity Recognition (NER). Met aLs doel om vrije-tekst documenten te kunnen anonimiseren.
 
 We gaan hiervoor gebruik maken van het  Nederlandse taal corpus zoals beschikbaar via SpaCy.
-
 Via de volgende link kun je meer informatie vinden over de verschillende SpaCy libraries en hoe je deze kunt gebruiken en installeren: https://spacy.io/usage
 
 
@@ -317,9 +329,7 @@ for ent in pdf_doc.ents:
 pdf_df["entiteiten"] = entiteiten
 print(pdf_df)
 ```
-
 Herhaal deze stap ook met de ingelezen docx dataframe.
-
 <br>
 
 ### Stap 4.4

@@ -291,12 +291,16 @@ Voordat je het model kunt gebruiken, moet je het eerst downloaden. Dit kun je do
 
 ```
 python -m spacy download nl_core_news_sm
+
+# In Jupyter Notebook  gebruik je de volgende commando:
+
+!python -m spacy download nl_core_news_sm
 ```
 <br> 
 
 ### Stap 4.2
 
-Laden van het Nederlandse NLP model
+Laden van het Nederlandse NLP model in Python.
 Nadat het model is gedownload, kun je het laden in je Python script door de volgende regel toe te voegen:
 
 ```python

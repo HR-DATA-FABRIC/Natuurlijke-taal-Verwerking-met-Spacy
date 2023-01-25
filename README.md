@@ -12,7 +12,7 @@ Natural Language Processing (NLP) --natuurlijke taal verwerking-- is een hybride
 
 <div align="left">
 
-|Leerdoel|
+|LEERDOEL|
 | --------- |
 | 1. [Coderen in Python met Anaconda + Jupyter notebooks](#l1) |
 | 2. [ChatGPT als hulpmiddel om te leren coderen](#l2) |
@@ -32,7 +32,7 @@ De python-broncode voor deze workshop is te vinden in de [Notebooks folder van d
 
 ********
 # l1
-## lEERDOEL [1]: Coderen in Python met Anaconda + Jupyter notebooks
+## LEERDOEL [1]: Coderen in Python met Anaconda + Jupyter notebooks
 ******** 
 
 <br>
@@ -45,7 +45,7 @@ De python-broncode voor deze workshop is te vinden in de [Notebooks folder van d
 
 ********
 # l2
-## lEERDOEL [2]: ChatGPT als hulpmiddel om te leren coderen
+## LEERDOEL [2]: ChatGPT als hulpmiddel om te leren coderen
 ******** 
 
 <br>
@@ -59,7 +59,7 @@ De python-broncode voor deze workshop is te vinden in de [Notebooks folder van d
 
 ********
 # l3
-## lEERDOEL [3]: Tekstgegevens kunnen importeren en visualiseren
+## LEERDOEL [3]: Tekstgegevens kunnen importeren en visualiseren
 ******** 
 
 ### Python code voor het inlezen van text data van .docx formaat documenten
@@ -259,7 +259,7 @@ print(docx_df)
 
 ********
 # l4
-### lEERDOEL [4]: Tekstgegevens voorbewerken en opschonen met SpaCy
+### LEERDOEL [4]: Tekstgegevens voorbewerken en opschonen met SpaCy
 ******** 
 
 In de vorige les hebben we geleerd hoe we ingelezen .docx en .pdf bestanden kunnen omzetten in dataframes met behulp van Numpy en Pandas. Nu gaan we leren hoe we deze dataframes kunnen voorbereiden voor het benutten van een natuurlijke taal verwerking functie: Named Entity Recognition (NER). Met aLs doel om vrije-tekst documenten te kunnen anonimiseren.
@@ -334,7 +334,7 @@ print(entiteiten_per_type)
 
 ********
 # l5
-### lEERDOEL [5]: Uitvoeren van NER op vrije-tekst met SpaCy
+### LEERDOEL [5]: Uitvoeren van NER op vrije-tekst met SpaCy
 ******** 
 
 

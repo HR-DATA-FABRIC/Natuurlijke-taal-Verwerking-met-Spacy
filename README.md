@@ -266,6 +266,11 @@ In de vorige les hebben we geleerd hoe we ingelezen .docx en .pdf bestanden kunn
 
 We gaan hiervoor gebruik maken van het  Nederlandse taal corpus zoals beschikbaar via SpaCy.
 
+Via de volgende link kun je meer informatie vinden over de verschillende SpaCy libraries en hoe je deze kunt gebruiken en installeren: https://spacy.io/usage
+
+
+
+
 ### Stap 4.1
 
 Downloaden van het Nederlandse NLP model

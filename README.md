@@ -82,7 +82,9 @@ Voordat we aan de slag kunnen, moeten we eerst de benodigde libraries installere
 
 ```
 
-Vervolgens moeten we de os library importeren en de huidige directory instellen naar de map waar de data bestanden zich bevinden. Met de os library kunnen we "command line" commando's uitvoeren in Python. We kunnen bijvoorbeeld de huidige directory instellen naar de map waar de data bestanden zich bevinden. Dit doen we door de volgende regels toe te voegen aan het begin van ons script:
+Met de os library kunnen we *"operating system"*  [OS] "command line" instructies's uitvoeren in Python. 
+Het is dan mogelijk om de huidige directory instellen naar de map waar de data bestanden zich bevinden. 
+Dit doen we door de volgende regels toe te voegen aan het begin het script:
 
 ```python
 # code needed to set current directory to path with data files
@@ -91,13 +93,11 @@ import os
 currentdir = os.getcwd() + r'/XXXXXXXXXX'
 flist = pd.DataFrame()
 
-# create dataframe with list of .xxx files in de data map
+# create dataframe with list of .xxx files that are in the data map
 # for example .docx | .pdf |  .html | .csv
-
 file_type='.pdf' #   select desired file type
 
-
-# create dataframe with list of .docx files in de data map
+# Create dataframe with list of .docx files in de data map
 for r, d, f in os.walk(currentdir):
     for idx, file in enumerate(f):
         if file_type in file:
@@ -109,7 +109,8 @@ for r, d, f in os.walk(currentdir):
 #  Column contains list of filenames of type as specified in file_type
 filenameslist = flist.rename(columns={0: 'filename'})
 
-#display current directory
+# Display current directory
+# Notice that dataframes are displayed in a nice readable Table format
 display(currentdir)
 ```
 

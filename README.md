@@ -285,26 +285,24 @@ Nu we de entiteiten hebben toegevoegd aan onze dataframes, kunnen we deze analys
 # aantal entiteiten per type
 entiteiten_per_type = pdf_df.entiteiten.apply(pd.Series).stack().value_counts()
 print(entiteiten_per_type)
-
 ```
+
 ********
-### STAP[5]: Aanpassen van bestaande Python broncode voor het anonimiseren van vrije-tekst
+### STAP[5]: Uitvoeren van NER op vrije-tekst met SPacy
 ******** 
 
 De onderstaande code maakt het mogelijk om de entiteiten in vrije-tekst anonimiseren.      <br>
 
 ```python
-### UPDATE PIP to newer version
-#step 1
-#!python -m pip uninstall pip
 
-#Step 2
-#!python -m ensurepip
-
-#Step 3
-#!python -m pip install -U pip
+## DOWNLOAD + INSTALL DUTCH language CORPUS (if not installed already)
+## https://spacy.io/models/nl
+#!python -m spacy download nl_core_news_md
+#!python -m spacy download nl_core_news_sm
+#!python -m spacy download nl_core_news_lg
 
 import os
+import docx
 import spacy
 from spacy import displacy
 import numpy as np
@@ -325,13 +323,10 @@ for r, d, f in os.walk(currentdir):
 #  Create column label "filename"      
 filenameslist = flist.rename(columns={0: 'filename'})
 
-
 # DISPLAY content of currentdir + filenames  .docx list   
 # ROWS index the number of files available
 display(currentdir)
 display(filenameslist)
-
-import docx
 
 ## SELECT FILENAME + path
 currentdir = os.getcwd()
@@ -341,22 +336,11 @@ datadir = r'/RAW_DATA/NON/'
 number = 5
 docsel  = currentdir + datadir + filenameslist.filename.iloc[number]
 
-print(docsel)
-
-## DOWNLOAD + INSTALL DUTCH language CORPUS (if not installed already)
-## https://spacy.io/models/nl
-#!python -m spacy download nl_core_news_md
-#!python -m spacy download nl_core_news_sm
-#!python -m spacy download nl_core_news_lg
-#!conda install spacy
-#!pip install cupy-cuda111
-#!pip install -U --user 'spacy[cuda-autodetect,transformers,lookups]'
-#!python -m spacy validate
+#  DISPLAY selected filename
+display(docsel)
 
 
-import pandas as pd
-import docx
-
+## READ .docx file
 doc = docx.Document(docsel)
 data = ""
 fullText = []
@@ -371,6 +355,8 @@ from spacy import displacy
 spacy.prefer_gpu()
 nlp = spacy.load("nl_core_news_lg")
 doc = nlp(data) 
+
+## DISPLAY NER results
 ## In jupyter Notebooks Use .render (NIET .serve)
 displacy.render(doc, style="ent")
 
@@ -414,3 +400,9 @@ df[sel]
 
 
 ```
+
+
+
+********
+### STAP[6]: Aanpassen van bestaande Python broncode voor het anonimiseren van vrije-tekst
+******** 

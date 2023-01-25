@@ -190,6 +190,7 @@ Nu we de tekst uit ons .docx of pdf bestand hebben gehaald, kunnen we deze verwe
 Op de SpaCy website kun je meer informatie vinden over de verschillende SpaCy libraries en hoe je deze kunt gebruiken en installeren: https://spacy.io/usage
 
 
+![Instal-SpaCy](https://user-images.githubusercontent.com/684692/214674372-9b36237e-2a54-44d4-8c78-f3aeae91bcbc.jpg)
 
 
 

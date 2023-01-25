@@ -73,15 +73,20 @@ Stap 1: Installeer de benodigde libraries
 Voordat we aan de slag kunnen, moeten we eerst de benodigde libraries installeren. Dit kun je doen door de volgende commando's uit te voeren in je command prompt of terminal:
 
 ```python
-#IF NO MODULE named spacypdfreader | python-docx | spacy
+# IF NO MODULE named spacypdfreader | python-docx | spacy
 # install the following libraries by uncommenting the following lines
+
 #!pip install spacypdfreader
 #!pip install python-docx
 #!pip install spacy
 
-# needed to set current directory to path with data files
-# XXXXXXXXXX = path to data files
+```
 
+Vervolgens moeten we de os library importeren en de huidige directory instellen naar de map waar de data bestanden zich bevinden. Met de os library kunnen we "command line" commando's uitvoeren in Python. We kunnen bijvoorbeeld de huidige directory instellen naar de map waar de data bestanden zich bevinden. Dit doen we door de volgende regels toe te voegen aan het begin van ons script:
+
+```python
+# code needed to set current directory to path with data files
+# XXXXXXXXXX = path to data files
 import os
 currentdir = os.getcwd() + r'/XXXXXXXXXX'
 flist = pd.DataFrame()
@@ -104,13 +109,10 @@ for r, d, f in os.walk(currentdir):
 #  Column contains list of filenames of type as specified in file_type
 filenameslist = flist.rename(columns={0: 'filename'})
 
-
 #display current directory
 display(currentdir)
-
-
-
 ```
+
 Stap 2: Importeer de libraries in je Python script
 Nu we de libraries geïnstalleerd hebben, kunnen we ze importeren in ons Python script. Dit doen we door de volgende regels toe te voegen aan het begin van ons script:
 

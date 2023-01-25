@@ -63,9 +63,12 @@ Hier leer je hoe .docx en .pdf bestanden kunnen worden ingelezen in Python  <br>
 
 We gaan hiervoor gebruik maken van de volgende libraries:
 
-PyPDF2 (voor het inlezen van pdf bestanden)
+os (voor het inlezen van bestanden uit de lokale omgeving)
+spacypdfreader (voor het inlezen van pdf bestanden)
 docx (voor het inlezen van dox bestanden)
 spacy (voor het verwerken van de ingelezen tekst)
+
+
 Stap 1: Installeer de benodigde libraries
 Voordat we aan de slag kunnen, moeten we eerst de benodigde libraries installeren. Dit kun je doen door de volgende commando's uit te voeren in je command prompt of terminal:
 
@@ -86,7 +89,7 @@ flist = pd.DataFrame()
 # create dataframe with list of .xxx files in de data map
 # for example .docx | .pdf |  .html | .csv
 
-file_type='.pdf' #   lect desired file type
+file_type='.pdf' #   select desired file type
 
 
 # create dataframe with list of .docx files in de data map
@@ -97,7 +100,8 @@ for r, d, f in os.walk(currentdir):
             temp = df([file], index = [idx+1])
             flist = pd.concat([flist, temp])   
             
-#  Create column with label "filename"      
+#  Create column with label "filename"    
+#  Column contains list of filenames of type as specified in file_type
 filenameslist = flist.rename(columns={0: 'filename'})
 
 

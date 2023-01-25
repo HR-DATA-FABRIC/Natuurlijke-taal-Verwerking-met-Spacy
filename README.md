@@ -70,16 +70,18 @@ Stap 1: Installeer de benodigde libraries
 Voordat we aan de slag kunnen, moeten we eerst de benodigde libraries installeren. Dit kun je doen door de volgende commando's uit te voeren in je command prompt of terminal:
 
 ```python
-pip install PyPDF2
-pip install python-docx
-pip install spacy
+#IF NO MODULE named spacypdfreader | python-docx | spacy
+# inmstall the following libraries by uncommenting the following lines
+#!pip install spacypdfreader
+#!pip install python-docx
+#!pip install spacy
 
 ```
 Stap 2: Importeer de libraries in je Python script
 Nu we de libraries geïnstalleerd hebben, kunnen we ze importeren in ons Python script. Dit doen we door de volgende regels toe te voegen aan het begin van ons script:
 
 ```python
-import PyPDF2
+
 import docx
 import spacy
 
@@ -91,15 +93,17 @@ Om een pdf bestand in te lezen gebruiken we de PyPDF2 library. <br>
 Hieronder staat een voorbeeld van hoe je dit kunt doen:
 
 ```python
+import spacy
+from spacypdfreader import pdf_reader
+
+# laden van de spacy NLP model
+nlp = spacy.load('nl_core_news_sm')
+
 # open het pdf bestand
-with open('voorbeeld.pdf', 'rb') as file:
-    # lees het bestand in met PyPDF2
-    pdf = PyPDF2.PdfFileReader(file)
-    # haal de tekst uit het bestand
-    tekst = ""
-    for i in range(0, pdf.getNumPages()):
-        tekst += pdf.getPage(i).extractText()
-    print(tekst)
+data = pdf_reader(voorbeeld.pdf, nlp)
+
+# haal de tekst uit het bestand
+print(tekst)
 
 ```
 
@@ -165,6 +169,30 @@ with open('voorbeeld.pdf', 'rb') as file:
     data = {'tekst': [tekst]}
     pdf_df = pd.DataFrame(data)
     print(pdf_df)
+
+
+
+# bovenstaande code in een functies zijn veroudert en niet meer bruikbaar
+# zie hieronder voor de nieuwe code met de nieuwe SpaCy libraries
+import spacy
+from spacypdfreader import pdf_reader
+
+nlp = spacy.load('en_core_web_sm')
+
+
+## SELECT FILENAME + path
+currentdir = os.getcwd()
+datadir = r'/DATA/'
+## NUMBER selects index of filename in the list 
+number = 1  # FIRST item on the list (index == 0)  
+docsel = currentdir + datadir + filenameslist.filename.iloc[number-1]
+
+#docsel =  filenameslist.filename.iloc[number-1]
+
+print(docsel)
+
+data = pdf_reader(docsel, nlp)
+
 ```
 Stap 4: Creëer een dataframe van de ingelezen dox bestanden
 In deze stap gaan we de ingelezen tekst uit ons dox bestand omzetten in een dataframe. Hieronder staat een voorbeeld van hoe je dit kunt doen:

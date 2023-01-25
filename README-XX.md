@@ -9,7 +9,6 @@ Natural Language Processing (NLP) --natuurlijke taal verwerking-- is een hybride
 ********
 
 
-
 <div align="left">
 
 |Leerdoel|
@@ -18,8 +17,7 @@ Natural Language Processing (NLP) --natuurlijke taal verwerking-- is een hybride
 | 2. ChatGPT als hulpmiddel om te leren coderen |
 | 3. Tekstgegevens importeren en visualiseren | 
 | 4. Tekstgegevens voorbewerken en opschonen |
-| 5. Tekstgegevens analyseren en interpreteren |
-| 6. Aanpassen van vrije-tekst  |
+| 5. Aanpassen van bestaande Python broncode voor je eigen doeleinde |
 
 Na afloop van deze workshop ben je instaat om 
 * met behulp van Python en Jupyter notebooks, tekstgegevens te importeren, te visualiseren en te voorbewerken. <br>
@@ -31,7 +29,7 @@ De python-broncode voor deze workshop is te vinden in de [Notebooks folder van d
 </div> <br />
 
 ********
-## LEERDOEL github[1]: Coderen in Python met Anaconda + Jupyter notebooks
+## STAP [1]: Coderen in Python met Anaconda + Jupyter notebooks
 ******** 
 
 <br>
@@ -43,7 +41,7 @@ De python-broncode voor deze workshop is te vinden in de [Notebooks folder van d
 <br>
 
 ********
-## LEERDOEL [2]: ChatGPT als hulpmiddel om te leren coderen
+## STAP [2]: ChatGPT als hulpmiddel om te leren coderen
 ******** 
 
 <br>
@@ -56,7 +54,7 @@ De python-broncode voor deze workshop is te vinden in de [Notebooks folder van d
 <br>
 
 ********
-## LEERDOEL [3]: Tekstgegevens kunnen importeren en visualiseren
+## STAP[3]: Tekstgegevens kunnen importeren en visualiseren
 ******** 
 
 ### Python code voor het inlezen van text data van .docx formaat documenten
@@ -71,9 +69,7 @@ docx (voor het inlezen van dox bestanden)
 spacy (voor het verwerken van de ingelezen tekst)
 
 
-## Stap 1
-
-Installeer de benodigde libraries
+Stap 1: Installeer de benodigde libraries
 Voordat we aan de slag kunnen, moeten we eerst de benodigde libraries installeren. Dit kun je doen door de volgende commando's uit te voeren in je command prompt of terminal:
 
 ```python
@@ -122,9 +118,7 @@ display(currentdir)
 display(filenameslist)
 ```
 
-## Stap 2
-
-Importeer de libraries in je Python script
+Stap 2: Importeer de libraries in je Python script
 Nu we de libraries geïnstalleerd hebben, kunnen we ze importeren in ons Python script. Dit doen we door de volgende regels toe te voegen aan het begin van ons script:
 
 ```python
@@ -135,37 +129,23 @@ import spacy
 from spacypdfreader import pdf_reader
 ```
 
-## Stap 3
-Lees een pdf bestand in
+Stap 3: Lees een pdf bestand in
 Om een pdf bestand in te lezen gebruiken we de PyPDF2 library. <br> 
 Hieronder staat een voorbeeld van hoe je dit kunt doen:
 
 ```python
-## SELECT FILENAME + path
-currentdir = os.getcwd()
-datadir = r'/DATA/'
-
-## NUMBER selects index of filename in the list 
-number = 2-1  # 2 - 1 = 2rd file in the list
-docsel  = currentdir + datadir + filenameslist.filename.iloc[number]
-display(docsel)
-
-
 # laden van de spacy NLP model
 nlp = spacy.load('nl_core_news_sm')
 
 # open het pdf bestand
-data = pdf_reader(docsel, nlp)
+data = pdf_reader(voorbeeld.pdf, nlp)
 
-# Toon alle text van pagina selp van de PFD file.
-selp = 4; # select page number
-display(doc._.page(selp))         # 'able to display the destination page'
+# haal de tekst uit het bestand
+print(tekst)
 
 ```
 
-## Stap 4
-
-Lees een dox bestand in
+Stap 4: Lees een dox bestand in
 Om een docx bestand in te lezen gebruiken we de docx library. Hieronder staat een voorbeeld van hoe je dit kunt doen:
 
 ```python
@@ -231,10 +211,7 @@ pdf_df = pd.DataFrame(data)
 print(pdf_df)
 
 ```
-
-## Stap 5
-
-Creëer een dataframe van de ingelezen dox bestanden
+Stap 4: Creëer een dataframe van de ingelezen dox bestanden
 In deze stap gaan we de ingelezen tekst uit ons dox bestand omzetten in een dataframe. Hieronder staat een voorbeeld van hoe je dit kunt doen:
 
 ```python
@@ -251,7 +228,7 @@ print(docx_df)
 ```
 
 ********
-### LEERDOEL [4]: Tekstgegevens voorbewerken en opschonen met SpaCy
+### STAP[4]: Named Entities Recognition (NER) leren opporen in vrije-tekst met SPacy
 ******** 
 
 In de vorige les hebben we geleerd hoe we ingelezen .docx en .pdf bestanden kunnen omzetten in dataframes met behulp van Numpy en Pandas. Nu gaan we leren hoe we deze dataframes kunnen voorbereiden voor het benutten van een natuurlijke taal verwerking functie: Named Entity Recognition (NER). Met aLs doel om vrije-tekst documenten te kunnen anonimiseren.
@@ -307,8 +284,6 @@ Nu we de entiteiten hebben toegevoegd aan onze dataframes, kunnen we deze analys
 
 <br>
 
-
-
 ```python
 # aantal entiteiten per type
 entiteiten_per_type = pdf_df.entiteiten.apply(pd.Series).stack().value_counts()
@@ -316,7 +291,7 @@ print(entiteiten_per_type)
 ```
 
 ********
-### LEERDOEL [5]: Uitvoeren van NER op vrije-tekst met SpaCy
+### STAP[5]: Uitvoeren van NER op vrije-tekst met SPacy
 ******** 
 
 De onderstaande code maakt het mogelijk om de entiteiten in vrije-tekst anonimiseren.      <br>
@@ -432,4 +407,5 @@ df[sel]
 
 
 ********
-### STAP[6]: Aanpassen van bestaande vrije-tekst voor je eigen doeleinden
+### STAP[6]: Aanpassen van bestaande Python broncode voor het anonimiseren van vrije-tekst
+******** 

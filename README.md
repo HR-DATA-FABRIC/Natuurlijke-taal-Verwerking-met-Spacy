@@ -14,12 +14,12 @@ Natural Language Processing (NLP) --natuurlijke taal verwerking-- is een hybride
 
 |Leerdoel|
 | --------- |
-| 1. Coderen in Python met Anaconda + Jupyter notebooks |
-| 2. ChatGPT als hulpmiddel om te leren coderen |
-| 3. Tekstgegevens importeren en visualiseren | 
-| 4. Tekstgegevens voorbewerken en opschonen |
-| 5. Tekstgegevens analyseren en interpreteren |
-| 6. Aanpassen van vrije-tekst  |
+| 1. [Coderen in Python met Anaconda + Jupyter notebooks](#l1) |
+| 2. [ChatGPT als hulpmiddel om te leren coderen](#l2) |
+| 3. [Tekstgegevens importeren en visualiseren](#l3)  | 
+| 4. [Tekstgegevens voorbewerken en opschonen](#l4)  |
+| 5. [Tekstgegevens analyseren en interpreteren](#l5)  |
+| 6. [Aanpassen van vrije-tekst](#l6)   |
 
 Na afloop van deze workshop ben je instaat om 
 * met behulp van Python en Jupyter notebooks, tekstgegevens te importeren, te visualiseren en te voorbewerken. <br>
@@ -31,7 +31,8 @@ De python-broncode voor deze workshop is te vinden in de [Notebooks folder van d
 </div> <br />
 
 ********
-## LEERDOEL [1]: Coderen in Python met Anaconda + Jupyter notebooks
+# l1
+## lEERDOEL [1]: Coderen in Python met Anaconda + Jupyter notebooks
 ******** 
 
 <br>
@@ -43,7 +44,8 @@ De python-broncode voor deze workshop is te vinden in de [Notebooks folder van d
 <br>
 
 ********
-## LEERDOEL [2]: ChatGPT als hulpmiddel om te leren coderen
+# l2
+## lEERDOEL [2]: ChatGPT als hulpmiddel om te leren coderen
 ******** 
 
 <br>
@@ -56,7 +58,8 @@ De python-broncode voor deze workshop is te vinden in de [Notebooks folder van d
 <br>
 
 ********
-## LEERDOEL [3]: Tekstgegevens kunnen importeren en visualiseren
+# l3
+## lEERDOEL [3]: Tekstgegevens kunnen importeren en visualiseren
 ******** 
 
 ### Python code voor het inlezen van text data van .docx formaat documenten
@@ -71,7 +74,7 @@ docx (voor het inlezen van dox bestanden)
 spacy (voor het verwerken van de ingelezen tekst)
 
 
-## Stap 3.1
+### Stap 3.1
 
 Installeer de benodigde libraries
 Voordat we aan de slag kunnen, moeten we eerst de benodigde libraries installeren. Dit kun je doen door de volgende commando's uit te voeren in je command prompt of terminal:
@@ -122,7 +125,7 @@ display(currentdir)
 display(filenameslist)
 ```
 
-## Stap 3.2
+### Stap 3.2
 
 Importeer de libraries in je Python script
 Nu we de libraries geïnstalleerd hebben, kunnen we ze importeren in ons Python script. Dit doen we door de volgende regels toe te voegen aan het begin van ons script:
@@ -135,7 +138,7 @@ import spacy
 from spacypdfreader import pdf_reader
 ```
 
-## Stap 3.3
+### Stap 3.3
 Lees een pdf bestand in
 Om een pdf bestand in te lezen gebruiken we de PyPDF2 library. <br> 
 Hieronder staat een voorbeeld van hoe je dit kunt doen:
@@ -163,7 +166,7 @@ display(doc._.page(selp))         # 'able to display the destination page'
 
 ```
 
-## Stap 3.4
+### Stap 3.4
 
 Lees een dox bestand in
 Om een docx bestand in te lezen gebruiken we de docx library. Hieronder staat een voorbeeld van hoe je dit kunt doen:
@@ -179,7 +182,7 @@ print(tekst)
     
 ```
 
-## Stap 3.5
+### Stap 3.5
 
 Verwerk de ingelezen tekst met SpaCy
 Nu we de tekst uit ons .docx of pdf bestand hebben gehaald, kunnen we deze verwerken met SpaCy. Hieronder staat een voorbeeld van hoe je dit kunt doen:
@@ -196,7 +199,9 @@ nlp = spacy.load("en_core_web_sm")
 
 ```
 
-### Python code voor visualiseren van text dataFrames van .docx en/of .pdf formaat documenten
+### Stap 3.6
+
+Python code voor visualiseren van text dataFrames van .docx en/of .pdf formaat documenten
  
 We hebben geleerd hoe we .docx en .pdf bestanden kunnen inlezen in Python, maar nu gaan we leren hoe we deze ingelezen tekst kunnen omzetten in dataframes met behulp van Numpy en Pandas.
 
@@ -234,7 +239,7 @@ print(pdf_df)
 
 ```
 
-## Stap 3.6
+### Stap 3.7
 
 Creëer een dataframe van de ingelezen dox bestanden
 In deze stap gaan we de ingelezen tekst uit ons dox bestand omzetten in een dataframe. Hieronder staat een voorbeeld van hoe je dit kunt doen:
@@ -253,14 +258,15 @@ print(docx_df)
 ```
 
 ********
-### LEERDOEL [4]: Tekstgegevens voorbewerken en opschonen met SpaCy
+# l4
+### lEERDOEL [4]: Tekstgegevens voorbewerken en opschonen met SpaCy
 ******** 
 
 In de vorige les hebben we geleerd hoe we ingelezen .docx en .pdf bestanden kunnen omzetten in dataframes met behulp van Numpy en Pandas. Nu gaan we leren hoe we deze dataframes kunnen voorbereiden voor het benutten van een natuurlijke taal verwerking functie: Named Entity Recognition (NER). Met aLs doel om vrije-tekst documenten te kunnen anonimiseren.
 
 We gaan hiervoor gebruik maken van het  Nederlandse taal corpus zoals beschikbaar via SpaCy.
 
-## Stap 4.1
+### Stap 4.1
 
 Downloaden van het Nederlandse NLP model
 Voordat je het model kunt gebruiken, moet je het eerst downloaden. Dit kun je doen door de volgende commando uit te voeren in je command prompt of terminal:
@@ -270,7 +276,7 @@ python -m spacy download nl_core_news_sm
 ```
 <br> 
 
-## Stap 4.2
+### Stap 4.2
 
 Laden van het Nederlandse NLP model
 Nadat het model is gedownload, kun je het laden in je Python script door de volgende regel toe te voegen:
@@ -285,7 +291,7 @@ Met deze stappen heb je het Nederlandse NLP model geladen in spacy en kun je dez
 
 <br> 
 
-##Stap 4.3
+### Stap 4.3
 
 Voorbereiden van de dataframe voor NER
 In deze stap gaan we de dataframe voorbereiden voor NER. <br> 
@@ -310,7 +316,7 @@ Herhaal deze stap ook met de ingelezen docx dataframe.
 
 <br>
 
-## Stap 4.4
+### Stap 4.4
 
 Analyseren van de entiteiten
 Nu we de entiteiten hebben toegevoegd aan onze dataframes, kunnen we deze analyseren. 
@@ -327,7 +333,8 @@ print(entiteiten_per_type)
 ```
 
 ********
-### LEERDOEL [5]: Uitvoeren van NER op vrije-tekst met SpaCy
+# l5
+### lEERDOEL [5]: Uitvoeren van NER op vrije-tekst met SpaCy
 ******** 
 
 
@@ -443,6 +450,6 @@ df[sel]
 
 
 ********
-### STAP[6]: Aanpassen van bestaande vrije-tekst voor je eigen doeleinden
+#### Stap[6]: Aanpassen van bestaande vrije-tekst voor je eigen doeleinden
 
 De onderstaande code maakt het mogelijk om de entiteiten in vrije-tekst anonimiseren.      <br>

@@ -110,8 +110,12 @@ for r, d, f in os.walk(currentdir):
 filenameslist = flist.rename(columns={0: 'filename'})
 
 # Display current directory
-# Notice that dataframes are displayed in a nice readable Table format
+# Notice that dataframes are displayed in a for humans nice readable format
 display(currentdir)
+
+# DISPLAY content of the current directory + path + filenames  in Table format
+# ROWS index represent the number of files available in the current directory
+display(filenameslist)
 ```
 
 Stap 2: Importeer de libraries in je Python script
@@ -123,11 +127,7 @@ import os
 import docx
 import spacy
 from spacypdfreader import pdf_reader
-
-
-
 ```
-
 
 Stap 3: Lees een pdf bestand in
 Om een pdf bestand in te lezen gebruiken we de PyPDF2 library. <br> 

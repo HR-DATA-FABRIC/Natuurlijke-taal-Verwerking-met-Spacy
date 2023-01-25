@@ -59,7 +59,7 @@ De python-broncode voor deze workshop is te vinden in de [Notebooks folder van d
 
 ### Python code voor het inlezen van text data van .docx formaat documenten
  
-Hier leer je hoe .docx en .pdf bestanden kunnen worden ingelezen in Python  <br> zodat we er vervolgens mee kunnen werken in SPacy.
+Hier leer je hoe .docx en .pdf bestanden kunnen worden ingelezen in Python  <br> zodat we er vervolgens mee kunnen werken in SpaCy.
 
 We gaan hiervoor gebruik maken van de volgende libraries:
 

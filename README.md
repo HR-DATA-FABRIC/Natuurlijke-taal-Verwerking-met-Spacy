@@ -146,7 +146,7 @@ print(tekst)
 ```
 
 Stap 4: Lees een dox bestand in
-Om een dox bestand in te lezen gebruiken we de docx library. Hieronder staat een voorbeeld van hoe je dit kunt doen:
+Om een docx bestand in te lezen gebruiken we de docx library. Hieronder staat een voorbeeld van hoe je dit kunt doen:
 
 ```python
 # open het dox bestand
@@ -159,8 +159,14 @@ print(tekst)
     
 ```
 
-Stap 5: Verwerk de ingelezen tekst met SPacy
+Stap 5: Verwerk de ingelezen tekst met SpaCy
 Nu we de tekst uit ons .docx of pdf bestand hebben gehaald, kunnen we deze verwerken met SpaCy. Hieronder staat een voorbeeld van hoe je dit kunt doen:
+
+Op de SpaCy website kun je meer informatie vinden over de verschillende SpaCy libraries en hoe je deze kunt gebruiken en installeren: https://spacy.io/usage
+
+
+
+
 
 ```python
 # laden van de spacy NLP model

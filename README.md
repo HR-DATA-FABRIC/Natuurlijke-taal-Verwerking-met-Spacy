@@ -39,7 +39,7 @@ De python-broncode voor deze workshop is te vinden in de [Notebooks folder van d
 
 |Materialen|
 | --------- |
-| https://github.com/robvdw/Creating-AI-Data-Products-Using-Jupyter-Notebooks| 
+| [Jupyter-Notebook-for-Data-Science](https://github.com/HR-DATA-FABRIC/Jupyter-Notebook-for-Data-Science)| 
 
 <br>
 
@@ -53,7 +53,7 @@ De python-broncode voor deze workshop is te vinden in de [Notebooks folder van d
 
 |Materialen|
 | --------- |
-| https://github.com/robvdw/AIs-NEW-FRONTIER-Chat-GPT |
+| [ChatGPT uitgelegd](https://github.com/HR-ChatGPT/ChatGPT-UITGELEGD) |
 
 <br>
 
